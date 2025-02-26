@@ -14,7 +14,7 @@ const Home = () => {
         <div>
             <div>
                 <Helmet>
-                    <title>Bistro || Home</title>
+                    <title>Ghure Ashi </title>
                 </Helmet>
             </div>
             <Banner></Banner>
