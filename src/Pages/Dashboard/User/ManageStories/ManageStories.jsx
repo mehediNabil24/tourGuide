@@ -66,7 +66,10 @@ const ManageStories = () => {
   if (isLoading) return <p>Loading stories...</p>;
 
   return (
+    <div>
+      <h1 className="text-xl font-bold">Total Stories added by me:{stories.length}</h1>
     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-6">
+      
       {stories?.map((story) => (
         <div key={story._id} className="bg-white shadow-md rounded-lg p-4">
           <img src={story.image} alt="Story" className="w-20 h-20 object-cover rounded" />
@@ -107,6 +110,7 @@ const ManageStories = () => {
           </div>
         </form>
       </Modal>
+    </div>
     </div>
   );
 };

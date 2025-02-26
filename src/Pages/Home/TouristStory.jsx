@@ -31,10 +31,10 @@ const TouristStory = () => {
             <h2 className="text-2xl font-bold text-center mb-6">📖 Tourist Stories</h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
-                {stories.map(story => (
+                {stories?.slice(0,2).map(story => (
                     <div key={story._id} className="border p-4 rounded-lg shadow-lg text-center">
                         <img src={story.image} alt="Story" className="w-full h-40 object-cover rounded-md mb-3" />
-                        <p className="text-gray-600">{story.story}</p>
+                        <p className="text-gray-600 text-left">{story.story}</p>
                         
                         {/* Share Button (Only if logged in) */}
                         <div className="mt-3">

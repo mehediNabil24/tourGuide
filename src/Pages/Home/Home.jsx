@@ -9,6 +9,8 @@ import Overview from './Overview';
 // import Package from './Package';
 import TourTabs from './TourTabs';
 import TouristStory from './TouristStory';
+import InfoSection from './InfoSection';
+import Features from './Feature';
 const Home = () => {
     return (
         <div>
@@ -21,6 +23,8 @@ const Home = () => {
             <Overview></Overview>
             <TourTabs></TourTabs>
             <TouristStory></TouristStory>
+            <Features></Features>
+            <InfoSection></InfoSection>
             {/* <Package></Package> */}
             {/* <Category></Category> */}
             {/* <PopularItems></PopularItems> */}

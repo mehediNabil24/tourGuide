@@ -58,7 +58,7 @@ import MakeAdmin from "../Pages/Dashboard/MakeAdmin/MakeAdmin";
         {
           path: '/packageDetails/:id',
           element:<PackageDetails></PackageDetails> ,
-          loader: ({params})=> fetch(`http://localhost:3000/packageDetails/${params.id}`)
+          loader: ({params})=> fetch(`https://tourism-server-site-mu.vercel.app/packageDetails/${params.id}`)
         },
         {
           path:'/package',
@@ -77,7 +77,7 @@ import MakeAdmin from "../Pages/Dashboard/MakeAdmin/MakeAdmin";
         {
           path: '/tourGuide/:id',
           element:<TourProfile></TourProfile>,
-          loader: ({params})=> fetch(`http://localhost:3000/tourGuide/${params.id}`) 
+          loader: ({params})=> fetch(`https://tourism-server-site-mu.vercel.app/tourGuide/${params.id}`) 
          
            },
         {
