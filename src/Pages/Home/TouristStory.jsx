@@ -1,11 +1,9 @@
 import React from 'react';
 import { useQuery } from '@tanstack/react-query';
-
 import { useNavigate } from 'react-router-dom';
 import useAxiosPublic from '../../Hooks/useAxiosPublic';
 import useAuth from '../../Hooks/useAuth';
 import { FacebookIcon, FacebookShareButton } from 'react-share';
-
 
 const TouristStory = () => {
     const axiosPublic = useAxiosPublic();
@@ -13,7 +11,7 @@ const TouristStory = () => {
     const navigate = useNavigate();
 
     // Fetch 4 random stories
-    const { data: stories = [], refetch } = useQuery({
+    const { data: stories = [] } = useQuery({
         queryKey: ['stories'],
         queryFn: async () => {
             const res = await axiosPublic.get('/randomStories');
@@ -24,7 +22,7 @@ const TouristStory = () => {
     // Handle Share Click
     const handleShare = (storyUrl) => {
         if (!user) {
-            navigate('/login'); // Redirect to login if not logged in
+            navigate('/login', { state: { from: location.pathname } }); // Redirect to login if not logged in
         }
     };
 
@@ -38,15 +36,23 @@ const TouristStory = () => {
                         <img src={story.image} alt="Story" className="w-full h-40 object-cover rounded-md mb-3" />
                         <p className="text-gray-600">{story.story}</p>
                         
-                        {/* Share Button */}
+                        {/* Share Button (Only if logged in) */}
                         <div className="mt-3">
-                            <FacebookShareButton 
-                                url={story.image} 
-                                quote={story.story}
-                                onClick={() => handleShare(story.image)}
-                            >
-                                <FacebookIcon size={36} round />
-                            </FacebookShareButton>
+                            {user ? (
+                                <FacebookShareButton 
+                                    url={story.image} 
+                                    quote={story.story}
+                                >
+                                    <FacebookIcon size={36} round />
+                                </FacebookShareButton>
+                            ) : (
+                                <button 
+                                    onClick={handleShare} 
+                                    className="px-3 py-1 bg-red-500 text-white rounded-md hover:bg-red-600"
+                                >
+                                    Login to Share
+                                </button>
+                            )}
                         </div>
                     </div>
                 ))}
