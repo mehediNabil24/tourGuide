@@ -1,0 +1,68 @@
+import React from 'react';
+import { useQuery } from '@tanstack/react-query';
+
+import { useNavigate } from 'react-router-dom';
+import useAxiosPublic from '../../Hooks/useAxiosPublic';
+import useAuth from '../../Hooks/useAuth';
+import { FacebookIcon, FacebookShareButton } from 'react-share';
+
+
+const TouristStory = () => {
+    const axiosPublic = useAxiosPublic();
+    const { user } = useAuth(); // Check if user is logged in
+    const navigate = useNavigate();
+
+    // Fetch 4 random stories
+    const { data: stories = [], refetch } = useQuery({
+        queryKey: ['stories'],
+        queryFn: async () => {
+            const res = await axiosPublic.get('/randomStories');
+            return res.data;
+        }
+    });
+
+    // Handle Share Click
+    const handleShare = (storyUrl) => {
+        if (!user) {
+            navigate('/login'); // Redirect to login if not logged in
+        }
+    };
+
+    return (
+        <div className="container mx-auto p-6">
+            <h2 className="text-2xl font-bold text-center mb-6">📖 Tourist Stories</h2>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+                {stories.map(story => (
+                    <div key={story._id} className="border p-4 rounded-lg shadow-lg text-center">
+                        <img src={story.image} alt="Story" className="w-full h-40 object-cover rounded-md mb-3" />
+                        <p className="text-gray-600">{story.story}</p>
+                        
+                        {/* Share Button */}
+                        <div className="mt-3">
+                            <FacebookShareButton 
+                                url={story.image} 
+                                quote={story.story}
+                                onClick={() => handleShare(story.image)}
+                            >
+                                <FacebookIcon size={36} round />
+                            </FacebookShareButton>
+                        </div>
+                    </div>
+                ))}
+            </div>
+
+            {/* View All Stories Button */}
+            <div className="text-center mt-6">
+                <button 
+                    onClick={() => navigate('/community')}
+                    className="px-5 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
+                >
+                    View All Stories
+                </button>
+            </div>
+        </div>
+    );
+};
+
+export default TouristStory;

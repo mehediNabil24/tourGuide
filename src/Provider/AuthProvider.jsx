@@ -43,22 +43,22 @@ const AuthProvider = ({ children }) => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       // console.log('current user',currentUser)
       setUser(currentUser);
-      // if(currentUser){
-      //   const userInfo = {email:currentUser.email};
+      if(currentUser){
+        const userInfo = {email:currentUser.email};
 
-      //   axiosPublic.post('/jwt',userInfo)
-      //   .then(res=>{
-      //     if(res.data.token){
-      //       localStorage.setItem('access token', res.data.token);
-      //     }
-      //   })
+        axiosPublic.post('/jwt',userInfo)
+        .then(res=>{
+          if(res.data.token){
+            localStorage.setItem('access token', res.data.token);
+          }
+        })
 
 
-      // }
-      // else{
-      //   localStorage.removeItem('access token');
+      }
+      else{
+        localStorage.removeItem('access token');
 
-      // }
+      }
       // if (currentUser?.email) {
       //   const user = { email: currentUser.email };
       //   axios
