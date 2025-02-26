@@ -1,13 +1,14 @@
 import { useState } from "react";
-import { useQuery } from "@tanstack/react-query";
-import ReactModal from "react-modal";
+import { QueryClient, useMutation, useQuery } from "@tanstack/react-query";
+import Modal from "react-modal";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import useAuth from "../../../Hooks/useAuth";
+import { useForm } from "react-hook-form";
 
-
-ReactModal.setAppElement("#root"); // Important for accessibility
+Modal.setAppElement("#root"); // Important for accessibility
 
 const AdminManageProfile = () => {
+    const [isOpen, setIsOpen] = useState(false);
   const { user } = useAuth();
   const axiosPublic = useAxiosPublic();
   const [editModal, setEditModal] = useState(false);
@@ -47,6 +48,34 @@ const AdminManageProfile = () => {
       }
     },
   });
+
+    // Mutation for updating user
+    const mutation = useMutation({
+        mutationFn: async (updatedData) => {
+          await axiosPublic.put(`/users/${user?.email}`, updatedData);
+        },
+        onSuccess: () => {
+          QueryClient.invalidateQueries(["user"]);
+          setIsOpen(false);
+        },
+      });
+    
+      const { register, handleSubmit, setValue } = useForm();
+    
+      // Prefill form when modal opens
+      const openModal = () => {
+        setIsOpen(true);
+        setValue("name", user?.displayName || "");
+        setValue("image", user?.photoURL || "");
+        setValue("email", user?.email || "");
+        setValue("role", user?.role || "admin");
+      };
+    
+      const closeModal = () => setIsOpen(false);
+    
+      const onSubmit = (data) => {
+        mutation.mutate({ name: data.name, image: data.image });
+      };
   
   // Ensure stats is available before rendering
   if (adminLoading || statsLoading || !stats) return <p>Loading...</p>;
@@ -82,58 +111,38 @@ const AdminManageProfile = () => {
             <p className="text-gray-600">Email: {adminInfo?.email}</p>
           </div>
         </div>
-        <button
-          className="mt-4 bg-blue-600 text-white px-4 py-2 rounded shadow"
-          onClick={() => setEditModal(true)}
-        >
+        <button onClick={openModal} className="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
           Edit Profile
         </button>
       </div>
 
       {/* Edit Profile Modal (React Modal) */}
-      <ReactModal
-        isOpen={editModal}
-        onRequestClose={() => setEditModal(false)}
-        contentLabel="Edit Profile"
-        className="bg-white p-6 rounded-lg shadow-xl w-96 mx-auto mt-20"
-        overlayClassName="fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center"
-      >
-        <h3 className="text-xl font-bold mb-4">Edit Profile</h3>
-        <div className="flex flex-col gap-2">
-          <label>Name:</label>
-          <input
-            type="text"
-            className="border p-2 rounded"
-            value={adminData.name}
-            onChange={(e) => setAdminData({ ...adminData, name: e.target.value })}
-          />
-          <label>Photo URL:</label>
-          <input
-            type="text"
-            className="border p-2 rounded"
-            value={adminData.photo}
-            onChange={(e) => setAdminData({ ...adminData, photo: e.target.value })}
-          />
-          <label>Role:</label>
-          <input type="text" className="border p-2 rounded bg-gray-200" value={adminData.role} disabled />
-          <label>Email:</label>
-          <input type="text" className="border p-2 rounded bg-gray-200" value={adminData.email} disabled />
-        </div>
-        <div className="flex justify-end gap-4 mt-4">
-          <button onClick={() => setEditModal(false)} className="px-4 py-2 bg-gray-300">
-            Cancel
-          </button>
-          <button
-            onClick={() => {
-              axiosPublic.patch(`/adminCollection/${user?.email}`, adminData);
-              setEditModal(false);
-            }}
-            className="px-4 py-2 bg-blue-500 text-white"
-          >
-            Save Changes
-          </button>
-        </div>
-      </ReactModal>
+        {/* Modal */}
+           <Modal isOpen={isOpen} onRequestClose={closeModal} className="bg-white p-6 rounded-lg shadow-lg max-w-md mx-auto mt-20" overlayClassName="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+             <h2 className="text-xl font-bold mb-4">Edit Profile</h2>
+             <form onSubmit={handleSubmit(onSubmit)}>
+               <label className="block text-gray-700">Name:</label>
+               <input {...register("name")} className="w-full border px-3 py-2 rounded mt-1" />
+     
+               <label className="block text-gray-700 mt-2">Profile Image URL:</label>
+               <input {...register("image")} className="w-full border px-3 py-2 rounded mt-1" />
+     
+               <label className="block text-gray-700 mt-2">Email:</label>
+               <input {...register("email")} disabled className="w-full border px-3 py-2 bg-gray-100 rounded mt-1 cursor-not-allowed" />
+     
+               <label className="block text-gray-700 mt-2">Role:</label>
+               <input {...register("role")} disabled className="w-full border px-3 py-2 bg-gray-100 rounded mt-1 cursor-not-allowed" />
+     
+               <div className="mt-4 flex justify-between">
+                 <button type="button" onClick={closeModal} className="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600">
+                   Cancel
+                 </button>
+                 <button type="submit" className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+                   Save Changes
+                 </button>
+               </div>
+             </form>
+           </Modal>
     </div>
   );
 };

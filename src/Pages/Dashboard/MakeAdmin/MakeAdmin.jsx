@@ -5,7 +5,7 @@ import { FaTrash, FaUser } from 'react-icons/fa';
 import Swal from 'sweetalert2';
 import useAxiosPublic from '../../../Hooks/useAxiosPublic';
 
-const AllUser = () => {
+const MakeAdmin = () => {
     const axiosPublic = useAxiosPublic()
     const {data: users= [], refetch} = useQuery({
         queryKey: ['users'],
@@ -66,7 +66,7 @@ Swal.fire({
     }
     return (
         <div>
-            <h2 className="text-4xl">Total Users: {users.length}</h2>
+            <h2 className="text-4xl">Add Admin</h2>
 
             <div className="overflow-x-auto">
   <table className="table w-full mt-5">
@@ -76,7 +76,7 @@ Swal.fire({
         <th>#</th>
         <th>Name</th>
         <th>Email</th>
-        {/* <th>Role</th> */}
+        <th>Role</th>
         <th>Action</th>
       </tr>
     </thead>
@@ -86,12 +86,12 @@ Swal.fire({
             <th>{index+1}</th>
             <td>{user.name}</td>
             <td>{user.email}</td>
-            {/* <td>
+            <td>
                 {
-                  user.role === 'admin' ? 'Admin':  <button onClick={()=>{handleMakeAdmin(user)}} className="btn btn-lg text-white text-xl bg-orange-400"><FaUser></FaUser></button>
+                  user.role === 'admin' ? 'Admin':  <button onClick={()=>{handleMakeAdmin(user)}} className="btn btn-lg text-white text-xl bg-blue-400">MakeAdmin</button>
                 }
 
-            </td> */}
+            </td>
             <td>
                  <button onClick={()=>{handleDeleteUser(user)}} className="btn btn-ghost btn-lg text-red-600"><FaTrash></FaTrash></button>
             </td>
@@ -108,4 +108,4 @@ Swal.fire({
     );
 };
 
-export default AllUser;
+export default MakeAdmin;

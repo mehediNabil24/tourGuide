@@ -28,6 +28,7 @@ import TourProfile from "../Pages/TourProfile/TourProfile";
 import MyBooking from "../Pages/Dashboard/User/MyBooking/MyBooking";
 import AssignedTours from "../Pages/Dashboard/TourGuide/AssignedTour/AssignedTour";
 import AdminManageProfile from "../Pages/Dashboard/AdminManageProfile/AdminManageProfile";
+import MakeAdmin from "../Pages/Dashboard/MakeAdmin/MakeAdmin";
 
   export const router = createBrowserRouter([
     {
@@ -125,6 +126,11 @@ import AdminManageProfile from "../Pages/Dashboard/AdminManageProfile/AdminManag
         {
           path: 'addPackage',
           element: <AddItems></AddItems>
+        },
+        {
+          path: 'makeAdmin',
+          element: <MakeAdmin></MakeAdmin>
+
         },
         {
           path: 'allUsers',
