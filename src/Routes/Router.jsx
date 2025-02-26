@@ -27,6 +27,7 @@ import TourManageProfile from "../Pages/Dashboard/TourGuide/TourManageProfile/To
 import TourProfile from "../Pages/TourProfile/TourProfile";
 import MyBooking from "../Pages/Dashboard/User/MyBooking/MyBooking";
 import AssignedTours from "../Pages/Dashboard/TourGuide/AssignedTour/AssignedTour";
+import AdminManageProfile from "../Pages/Dashboard/AdminManageProfile/AdminManageProfile";
 
   export const router = createBrowserRouter([
     {
@@ -132,6 +133,10 @@ import AssignedTours from "../Pages/Dashboard/TourGuide/AssignedTour/AssignedTou
         {
           path: 'manageCandidate',
           element: <ManageCandidate></ManageCandidate>
+        },
+        {
+          path: 'manageAdminProfile',
+          element: <AdminManageProfile></AdminManageProfile>
         },
 
         // tour Guide routes
