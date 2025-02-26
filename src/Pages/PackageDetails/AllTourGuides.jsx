@@ -16,7 +16,7 @@ const AllTourGuides = () => {
                 <h3 className="text-lg font-bold mt-2">{guide.name}</h3>
                 <p className="text-gray-600">{guide.email}</p>
                 <button
-                    onClick={() => navigate(`/tour-guide/${guide._id}`)}
+                    onClick={() => navigate(`/tourGuide/${guide._id}`)}
                     className="mt-3 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
                 >
                     View Profile

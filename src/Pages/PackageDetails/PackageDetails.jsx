@@ -2,7 +2,8 @@ import { useState, useRef } from "react";
 import Gallery from "./Gallery";
 import BookingForm from './BookingForm';
 import AllTourGuides from "./AllTourGuides";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
+import useAuth from "../../Hooks/useAuth";
 
 const PackageDetails = () => {
     const {
@@ -15,11 +16,17 @@ const PackageDetails = () => {
         description,
         tripTitle
     } = useLoaderData();
-
+    const {user} = useAuth();
+    const navigate = useNavigate();
     const [showBookingModal, setShowBookingModal] = useState(false);
     const modalRef = useRef(null);
 
     const handleReserveClick = () => {
+        if (!user) {
+            navigate('/login'); // Redirect to login if not logged in
+        }
+    
+        
         setShowBookingModal(true);
     };
 

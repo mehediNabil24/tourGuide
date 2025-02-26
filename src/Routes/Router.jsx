@@ -99,7 +99,7 @@ import MakeAdmin from "../Pages/Dashboard/MakeAdmin/MakeAdmin";
         
         {
           path: 'tourGuideApply',
-          element: <TourGuideApplication></TourGuideApplication>
+          element: <PrivateRoute><TourGuideApplication></TourGuideApplication></PrivateRoute>
 
         },
         {
