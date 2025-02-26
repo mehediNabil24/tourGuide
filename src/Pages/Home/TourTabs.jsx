@@ -4,11 +4,23 @@ import 'react-tabs/style/react-tabs.css';
 import { useNavigate } from 'react-router-dom';
 import usePackage from '../../Hooks/usePackage';
 import useGuides from '../../Hooks/useGuides';
+import { useQuery } from '@tanstack/react-query';
+import useAxiosPublic from '../../Hooks/useAxiosPublic';
 
 const TourTabs = () => {
     const navigate = useNavigate();
-    const [packages] = usePackage();
+    const axiosPublic = useAxiosPublic();
+    
     const [guides] = useGuides();
+
+    // Fetch 4 random stories
+    const { data: packages = [] } = useQuery({
+        queryKey: ['randomPackage'],
+        queryFn: async () => {
+            const res = await axiosPublic.get('/randomPackages');
+            return res.data;
+        }
+    });
 
     return (
         <div className="container mx-auto p-6">

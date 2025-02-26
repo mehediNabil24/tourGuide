@@ -12,7 +12,7 @@ import SectionTitle from "../../../../Components/SectionTitle/SectionTitle";
 
 
 const image_hosting_key = import.meta.env.VITE_image_hosting_key;
-const image_hosting_api =`https://api.imgbb.com/1/upload?expiration=60000&key=${image_hosting_key}`
+const image_hosting_api =`https://api.imgbb.com/1/upload?&key=${image_hosting_key}`
 const AddStory = () => {
 
     const axiosPublic = useAxiosPublic();
