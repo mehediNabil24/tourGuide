@@ -23,7 +23,7 @@ const PackageDetails = () => {
 
     const handleReserveClick = () => {
         if (!user) {
-            navigate('/login'); // Redirect to login if not logged in
+            navigate('/login');
         }
     
         

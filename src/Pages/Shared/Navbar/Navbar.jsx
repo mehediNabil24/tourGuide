@@ -3,6 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../../Provider/AuthProvider';
 import { FaUserLarge } from 'react-icons/fa6';
 import { FaShoppingCart } from 'react-icons/fa';
+import logo from '../../.././assets/icon/icons8-travel-agency-48.png'
 
 const Navbar = () => {
   const {user, logOut } = useContext(AuthContext)
@@ -59,7 +60,8 @@ const Navbar = () => {
     }
       </ul>
     </div>
-    <a className="btn btn-ghost text-xl">Bistro Boss</a>
+    <a className="btn btn-ghost text-xl">Ghure Ashi</a>
+    <img src={logo} alt="" />
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal justify-center items-center px-1">
