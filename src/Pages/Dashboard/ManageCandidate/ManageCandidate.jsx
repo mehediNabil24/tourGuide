@@ -66,7 +66,7 @@ Swal.fire({
     }
     return (
         <div>
-            <h2 className="text-4xl">Total Users: {tourGuides.length}</h2>
+            <h2 className="text-2xl">Total Application For TourGuide : {tourGuides.length}</h2>
 
             <div className="overflow-x-auto">
   <table className="table w-full mt-5">
@@ -77,7 +77,7 @@ Swal.fire({
         <th>Name</th>
         <th>Email</th>
         <th>Role</th>
-        <th>Action</th>
+        <th>Delete</th>
       </tr>
     </thead>
     <tbody>
@@ -91,7 +91,7 @@ Swal.fire({
     'Tour Guide'
   ) : (
     <button onClick={() => handleMakeTourGuide(tourGuide)} className="btn btn-lg text-white text-xl bg-orange-400">
-      <FaUser />
+      MakeTourGuide
     </button>
   )}
 </td>

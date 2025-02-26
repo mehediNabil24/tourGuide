@@ -86,40 +86,44 @@ const BookingForm = ({ _id, tripTitle, price }) => {
       </div>
 
       {/* Tour Date */}
-      <div className="mb-3">
-        <label className="block font-medium">Tour Date:</label>
-        <Controller
-          name="tourDate"
-          control={control}
-          defaultValue={null}
-          render={({ field }) => (
-            <DatePicker
-              {...field}
-              selected={field.value}
-              onChange={(date) => field.onChange(date)}
-              className="w-full p-2 border rounded"
-              placeholderText="Select a date"
-            />
-          )}
-        />
-      </div>
+<div className="mb-3">
+  <label className="block font-medium">Tour Date:</label>
+  <Controller
+    name="tourDate"
+    control={control}
+    defaultValue={null}
+    rules={{ required: "Tour date is required" }} // Add validation rule here
+    render={({ field }) => (
+      <DatePicker
+        {...field}
+        selected={field.value}
+        onChange={(date) => field.onChange(date)}
+        className="w-full p-2 border rounded"
+        placeholderText="Select a date"
+      />
+    )}
+  />
 
-      {/* Tour Guide Selection */}
-      <div className="mb-3">
-        <label className="block font-medium">Tour Guide:</label>
-        <select
-          {...register("tourGuide")}
-          className="w-full p-2 border rounded"
-          onChange={handleGuideChange}
-        >
-          <option value="">Select a guide</option>
-          {guides?.map((guide) => (
-            <option key={guide.id} value={guide.name}>
-              {guide.name}
-            </option>
-          ))}
-        </select>
-      </div>
+</div>
+
+{/* Tour Guide Selection */}
+<div className="mb-3">
+  <label className="block font-medium">Tour Guide:</label>
+  <select
+    {...register("tourGuide", { required: "Tour guide is required" })} // Add validation rule here
+    className="w-full p-2 border rounded"
+    onChange={handleGuideChange}
+  >
+    <option value="">Select a guide</option>
+    {guides?.map((guide) => (
+      <option key={guide.id} value={guide.name}>
+        {guide.name}
+      </option>
+    ))}
+  </select>
+ 
+</div>
+
 
       {/* Submit Button */}
       <button
