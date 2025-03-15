@@ -30,6 +30,7 @@ const Community = () => {
     };
 
     return (
+        <div className="py-16 bg-gray-100">
         <div className="container mx-auto p-6">
             <h2 className="text-2xl font-bold text-center mb-6">📖 Tourist Stories</h2>
             
@@ -37,7 +38,7 @@ const Community = () => {
                 {stories.map(story => (
                     <div key={story._id} className="border p-4 rounded-lg shadow-lg text-center">
                         <img src={story.image} alt="Story" className="w-full h-40 object-cover rounded-md mb-3" />
-                        <p className="text-gray-600">{story.story}</p>
+                        <p className="text-gray-600 text-left">{story.story}</p>
                         
                         {/* Share Button */}
                         <div className="mt-3">
@@ -54,6 +55,7 @@ const Community = () => {
             </div>
 
             
+        </div>
         </div>
     );
 };

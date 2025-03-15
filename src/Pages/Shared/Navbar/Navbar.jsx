@@ -31,7 +31,8 @@ const Navbar = () => {
   );
 
   return (
-    <div className="fixed z-10 bg-opacity-30 bg-black text-white navbar mx-auto max-w-screen-lg">
+    <div className="fixed z-10 bg-opacity-30 bg-black text-white  w-full ">
+      <div className='w-11/12  mx-auto navbar'>
       <div className="navbar-start">
         {/* Mobile Menu */}
         <div className="dropdown">
@@ -51,7 +52,7 @@ const Navbar = () => {
             </svg>
           </button>
           {dropdownOpen && (
-            <ul className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+            <ul className="menu menu-sm dropdown-content bg-base-100 text-black rounded-box z-[1] mt-3 w-52 p-2 shadow">
               {links}
             </ul>
           )}
@@ -66,7 +67,7 @@ const Navbar = () => {
 
       {/* Center Links */}
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal justify-center items-center px-1">
+        <ul className="menu menu-horizontal justify-center items-center text-bold text-[16px] px-1">
           {links}
         </ul>
       </div>
@@ -102,6 +103,7 @@ const Navbar = () => {
           <NavLink to="/login" className="btn btn-neutral">Login / Register</NavLink>
         )}
       </div>
+    </div>
     </div>
   );
 };

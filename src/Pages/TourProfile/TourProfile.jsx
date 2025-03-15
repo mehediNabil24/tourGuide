@@ -29,7 +29,7 @@ const TourProfile = () => {
     <img
       src={image}
       alt="Shoes"
-      className="rounded-xl" />
+      className="rounded-xl " />
   </figure>
   <div className="card-body items-center text-center">
     <h2 className="card-title">{name}</h2>

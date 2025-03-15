@@ -6,12 +6,15 @@ import Navbar from '../Pages/Shared/Navbar/Navbar';
 const MainOutlet = () => {
     const location = useLocation();
     const noHeaderFooter = location.pathname.includes('/login') || location.pathname.includes('/signup')
+    const isHomePage = location.pathname.includes('/')
 
 
     return (
-        <div className='max-w-screen-lg mx-auto'>
+        <div className='min-h-screen flex flex-col'>
             { noHeaderFooter || <Navbar></Navbar> }
-            <Outlet></Outlet>
+            <main className={`${isHomePage?"":'w-11/12 mx-auto'} flex-1`}>
+            <Outlet ></Outlet>
+            </main>
             { noHeaderFooter || <Footer></Footer>}
             
         </div>

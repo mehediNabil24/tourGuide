@@ -19,7 +19,10 @@ const Home = () => {
                     <title>Ghure Ashi </title>
                 </Helmet>
             </div>
+            <div className='w-full'>
             <Banner></Banner>
+            </div>
+            <div className='w-11/12 mx-auto'>
             <Overview></Overview>
             <TourTabs></TourTabs>
             <TouristStory></TouristStory>
@@ -31,6 +34,7 @@ const Home = () => {
             {/* <Featured></Featured> */}
             {/* <Testomonials></Testomonials> */}
             
+        </div>
         </div>
     );
 };

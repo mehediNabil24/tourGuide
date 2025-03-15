@@ -15,7 +15,7 @@ const AboutUs = () => {
           />
           <div className="text-center md:text-left">
             <h2 className="text-3xl font-semibold text-gray-800">Mehedi Hasan Nabil</h2>
-            <p className="text-lg text-gray-600 mt-4 mb-6">
+            <p className="text-lg text-gray-600 mt-4 mb-6 text-left">
               Mehedi Hasan is a passionate full-stack developer with a focus on building scalable and robust applications. 
               He specializes in JavaScript, React, Node.js, MongoDB, and more. He loves learning new technologies and 
               sharing knowledge with others.

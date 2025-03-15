@@ -78,7 +78,7 @@ const TourTabs = () => {
                     <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6">
                         {guides.map(guide => (
                             <div key={guide._id} className="border p-4 rounded-lg shadow-lg text-center">
-                                <img src={guide.image} alt={guide.name} className="w-24 h-24 mx-auto rounded-full" />
+                                <img src={guide.image} alt={guide.name} className="w-24 h-24 mx-auto rounded-full object-cover" />
                                 <h3 className="text-lg font-bold mt-2">{guide.name}</h3>
                                 <p className="text-gray-600">{guide.email}</p>
                                 <button

@@ -11,7 +11,7 @@ const AdminManageProfile = () => {
     const [isOpen, setIsOpen] = useState(false);
   const { user } = useAuth();
   const axiosPublic = useAxiosPublic();
-  const [editModal, setEditModal] = useState(false);
+ 
   const [adminData, setAdminData] = useState({});
 
   // Fetch Admin Data
@@ -30,9 +30,9 @@ const AdminManageProfile = () => {
     queryFn: async () => {
       try {
         const [tourGuides, clients, packages, stories] = await Promise.all([
+            axiosPublic.get("/tourGuides"),
           axiosPublic.get("/users"),
           axiosPublic.get("/package"),
-          axiosPublic.get("/tourGuides"),
           axiosPublic.get("/stories"),
         ]);
   
@@ -133,7 +133,7 @@ const AdminManageProfile = () => {
                <label className="block text-gray-700 mt-2">Role:</label>
                <input {...register("role")} disabled className="w-full border px-3 py-2 bg-gray-100 rounded mt-1 cursor-not-allowed" />
      
-               <div className="mt-4 flex justify-between">
+            <div className="mt-4 flex justify-between">
                  <button type="button" onClick={closeModal} className="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600">
                    Cancel
                  </button>

@@ -19,7 +19,8 @@ const Package = () => {
       //     })
       // },[])
       return (
-          <div className='mb-12'>
+        <div className="py-16 bg-gray-100"> 
+          <div className='mb-12 py-16'>
               <SectionTitle heading='From Our Packages' subheading={'Explore Packages'}></SectionTitle>
               <div className='grid md:grid-cols-2 gap-10'>
               {
@@ -31,6 +32,7 @@ const Package = () => {
              <button className="mt-4  btn btn-outline border-0 border-b-4">View All Package</button>
               
              </div>
+          </div>
           </div>
       );
   };

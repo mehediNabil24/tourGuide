@@ -145,7 +145,7 @@ const AddItems = () => {
           </div>
 
           <button className="btn">
-            Add Package <FaUtensils className="ml-2"></FaUtensils>
+            Add Package 
           </button>
         </form>
       </div>

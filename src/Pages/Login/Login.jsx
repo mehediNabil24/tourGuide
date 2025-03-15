@@ -5,6 +5,8 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import Swal from 'sweetalert2';
 import SocialLogin from '../../Components/Social/SocialLogin';
+import Lottie from 'lottie-react';
+import loginLottie from '../../../public/Animation - 1740608324413.json'
 
 
 const Login = () => {
@@ -53,17 +55,17 @@ const Login = () => {
     }
     return (
         <>
-        <Helmet><title>Bistro Boss | Login</title></Helmet>
-        <div className="hero bg-base-200 min-h-screen">
+        <Helmet><title>Ghure Ashi | Login</title></Helmet>
+        <div className='max-w-screen-xl mx-auto'>
+        <div className=" bg-base-200 hero min-h-screen ">
+        
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="text-center lg:text-left">
-            <h1 className="text-5xl font-bold">Login now!</h1>
-            <p className="py-6">
-              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
-              quasi. In deleniti eaque aut repudiandae et a id nisi.
-            </p>
+           
+            <Lottie animationData={loginLottie}></Lottie>
           </div>
-          <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+          <div className="card bg-base-100 w-full max-w-md shrink-0 shadow-xl">
+          <h1 className="text-5xl font-bold text-center">Login now!</h1>
             <form onSubmit={handleLogin} className="card-body">
               <div className="form-control">
                 <label className="label">
@@ -97,6 +99,7 @@ const Login = () => {
             </form>
           </div>
         </div>
+      </div>
       </div>
         </>
     );

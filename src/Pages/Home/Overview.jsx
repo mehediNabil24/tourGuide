@@ -3,7 +3,7 @@ import React from 'react';
 
 const Overview = () => {
     const opts = {
-        height: "450",
+        // height: "300",
         width: "100%",
         playerVars: {
           autoplay: 1, // Autoplay enabled
@@ -11,7 +11,7 @@ const Overview = () => {
     };
 
     return (
-        <div className='flex justify-center'>
+        <div className='flex justify-center h-[200px] md:h-[450px]  '>
             <YouTube video="QNUSIOMb6vI" {...opts}  />
         </div>
     );

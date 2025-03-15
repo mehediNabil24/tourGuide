@@ -15,6 +15,7 @@ const AllPackage = () => {
 
      
       return (
+        <div className="py-16 bg-gray-100">
         <div className='mb-12'>
               <SectionTitle heading='From Our Packages' subheading={'Explore Packages'}></SectionTitle>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -32,6 +33,7 @@ const AllPackage = () => {
                 </button>
             </div>
         ))}
+    </div>
     </div>
     </div>
       );
