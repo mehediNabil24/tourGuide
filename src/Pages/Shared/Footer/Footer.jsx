@@ -36,7 +36,7 @@ const Footer = () => {
             </footer>
             <footer className="bg-base-300 text-base-content p-4 text-center">
                 <aside>
-                    <p>Copyright © {new Date().getFullYear()} - All rights reserved by ACME Industries Ltd</p>
+                    <p>Copyright © {new Date().getFullYear()} - All rights reserved by  Ghure Ashi Travel Agency</p>
                 </aside>
             </footer>
         </div>
