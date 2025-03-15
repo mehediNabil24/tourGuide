@@ -28,7 +28,7 @@ const Dashboard = () => {
 
     return (
         <div className="md:flex ">
-            <div className="md:w-64 md:min-h-screen bg-orange-500">
+            <div className="md:w-64 md:min-h-screen bg-[#135D66] text-white">
                 <ul className="menu p-4">
                     {admin && (
                         <>

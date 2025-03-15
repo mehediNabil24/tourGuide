@@ -14,7 +14,7 @@ const PackageItem = ({item}) => {
           <h2 className="card-title">{tripTitle}</h2>
           <p>{location}</p>
           <div className="card-actions justify-end">
-            <button className="btn btn-primary">Package Details</button>
+            <button className="btn bg-[#003C43]">Package Details</button>
           </div>
         </div>
       </div>

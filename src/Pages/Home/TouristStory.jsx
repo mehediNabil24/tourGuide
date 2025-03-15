@@ -62,7 +62,7 @@ const TouristStory = () => {
             <div className="text-center mt-6">
                 <button 
                     onClick={() => navigate('/community')}
-                    className="px-5 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
+                    className="px-5 py-2 bg-[#003C43] text-white rounded-md hover:bg-blue-600"
                 >
                     View All Stories
                 </button>

@@ -27,7 +27,7 @@ const AllPackage = () => {
                 <p className="text-lg font-semibold text-green-600">${pkg.price}</p>
                 <button
                     onClick={() => navigate(`/packageDetails/${pkg._id}`)}
-                    className="mt-3 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
+                    className="mt-3 px-4 py-2 bg-[#003C43] text-white rounded-md hover:bg-blue-600"
                 >
                     View Details
                 </button>

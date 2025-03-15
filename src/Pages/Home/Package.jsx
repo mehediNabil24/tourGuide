@@ -29,7 +29,7 @@ const Package = () => {
               }
               </div>
              <div className='flex items-center justify-center'>
-             <button className="mt-4  btn btn-outline border-0 border-b-4">View All Package</button>
+             <button className="mt-4  btn bg-[#003C43] border-0 border-b-4">View All Package</button>
               
              </div>
           </div>

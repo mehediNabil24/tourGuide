@@ -1,12 +1,12 @@
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 
-import img1 from "../../assets/home/slide-3.jpg";
-import image2 from "../../../src/assets/home/slide-2.jpg";
-import image3 from "../../../src/assets/home/slide-1.jpg";
+import img1 from "../../assets/home/manzur-alam-AMqrW1Sxx3g-unsplash.jpg";
+import image2 from "../../../src/assets/home/llauddin-iajee-DWoOJ2C2uns-unsplash.jpg";
+import image3 from "../../../src/assets/home/faisal-photography-8Q5HBZsJclY-unsplash.jpg";
 import image4 from "../../assets/home/slide-4.jpg";
 import image5 from "../../assets/home/slide-5.jpg";
-import image6 from "../../assets/home/slide-6.jpg";
+import image6 from "../../assets/home/mohammad-samir-K-qNn-V9CXs-unsplash.jpg";
 
 const Banner = () => {
   return (

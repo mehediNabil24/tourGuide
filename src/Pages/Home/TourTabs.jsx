@@ -28,13 +28,13 @@ const TourTabs = () => {
                 <TabList className="flex gap-4 mb-6">
                     <Tab 
                         className="px-4 py-2 bg-gray-300 rounded-md cursor-pointer hover:bg-gray-400"
-                        selectedClassName="bg-red-500 text-white"
+                        selectedClassName="bg-[#003C43] text-white"
                     >
                         Our Packages
                     </Tab>
                     <Tab 
                         className="px-4 py-2 bg-gray-300 rounded-md cursor-pointer hover:bg-gray-400"
-                        selectedClassName="bg-red-500 text-white"
+                        selectedClassName="bg-[#003C43] text-white"
                     >
                         Meet Our Tour Guides
                     </Tab>
@@ -52,7 +52,7 @@ const TourTabs = () => {
                                 <p className="text-lg font-semibold text-green-600">${pkg.price}</p>
                                 <button
                                     onClick={() => navigate(`/packageDetails/${pkg._id}`)}
-                                    className="mt-3 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
+                                    className="mt-3 px-4 py-2 bg-[#003C43] text-white rounded-md hover:bg-blue-600"
                                 >
                                     View Details
                                 </button>
@@ -63,7 +63,7 @@ const TourTabs = () => {
                     <div className="text-center mt-6">
                 <button 
                     onClick={() => navigate('/package')}
-                    className="px-5 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
+                    className="px-5 py-2 bg-[#003C43] text-white rounded-md hover:bg-blue-600"
                 >
                     View All Packages
                 </button>
@@ -83,7 +83,7 @@ const TourTabs = () => {
                                 <p className="text-gray-600">{guide.email}</p>
                                 <button
                                     onClick={() => navigate(`/tourGuide/${guide._id}`)}
-                                    className="mt-3 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
+                                    className="mt-3 px-4 py-2 bg-[#003C43] text-white rounded-md hover:bg-blue-600"
                                 >
                                     View Profile
                                 </button>
