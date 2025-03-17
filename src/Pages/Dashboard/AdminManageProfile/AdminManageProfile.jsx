@@ -86,7 +86,7 @@ const AdminManageProfile = () => {
       <h2 className="text-2xl font-bold">Welcome, {adminInfo?.name} 🎉</h2>
 
       {/* Admin Stats */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 mt-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 mt-6 text-center ">
         {[
         //   { label: "Total Payment", value: `$${stats.totalPayment}` },
           { label: "Total Tour Guides", value: stats.totalTourGuides },
@@ -94,7 +94,7 @@ const AdminManageProfile = () => {
           { label: "Total Packages", value: stats.totalPackages },
           { label: "Total Stories", value: stats.totalStories },
         ].map((item, index) => (
-          <div key={index} className="bg-blue-500 text-white p-4 rounded-lg shadow-md text-center">
+          <div key={index} className="bg-blue-500 text-white p-4 rounded-lg shadow-md text-center items-center">
             <h3 className="text-lg font-semibold">{item.label}</h3>
             <p className="text-2xl font-bold">{item.value}</p>
           </div>
@@ -102,19 +102,43 @@ const AdminManageProfile = () => {
       </div>
 
       {/* Admin Profile */}
-      <div className="bg-white shadow-md rounded-lg p-6 mt-8">
-        <div className="flex items-center gap-4">
-          <img src={user?.photoURL} alt="Admin" className="w-20 h-20 rounded-full shadow-md" />
-          <div>
-            <h3 className="text-xl font-semibold">{adminInfo?.name}</h3>
-            <p className="text-gray-600">Role: Admin</p>
-            <p className="text-gray-600">Email: {adminInfo?.email}</p>
-          </div>
-        </div>
-        <button onClick={openModal} className="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+      <div className="max-w-2xl mx-auto bg-white shadow-lg rounded-xl overflow-hidden mt-4">
+      {/* Gradient Header */}
+      <div className="h-28 bg-gradient-to-r from-blue-500 to-purple-500"></div>
+
+      {/* Profile Section */}
+      <div className="flex flex-col items-center -mt-12">
+        <img
+          src={user?.photoURL || "/default-profile.png"}
+          alt="Profile"
+          className="w-24 h-24 rounded-full border-4 border-white object-cover"
+        />
+        <h2 className="text-xl font-semibold mt-2">{user?.name}</h2>
+        <p className="text-gray-600">{user?.email}</p>
+        
+     
+      </div>
+
+      {/* User Information */}
+      <div className="p-6">
+      <p className="text-gray-500 text-sm">
+  🕒 Joined: {user?.firstLogin ? new Date(user.firstLogin).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" }) : "N/A"}
+</p>
+        <p className="text-gray-500 text-sm mt-1">
+          🎭 Role: {user?.role || "admin"}
+        </p>
+
+        {/* Edit Profile Button */}
+        <button
+          onClick={openModal}
+          className="w-full mt-4 bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition duration-200"
+        >
           Edit Profile
         </button>
+
+       
       </div>
+    </div>
 
       {/* Edit Profile Modal (React Modal) */}
         {/* Modal */}

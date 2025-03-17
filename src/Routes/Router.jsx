@@ -30,7 +30,7 @@ import AssignedTours from "../Pages/Dashboard/TourGuide/AssignedTour/AssignedTou
 import AdminManageProfile from "../Pages/Dashboard/AdminManageProfile/AdminManageProfile";
 import MakeAdmin from "../Pages/Dashboard/MakeAdmin/MakeAdmin";
 import AdminHome from "../Pages/Dashboard/AdminHome";
-import UserHome from "../Pages/Dashboard/UserHome";
+// import UserHome from "../Pages/Dashboard/UserHome";
 
   export const router = createBrowserRouter([
     {
@@ -93,11 +93,7 @@ import UserHome from "../Pages/Dashboard/UserHome";
       element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
       children: [
         // normal user route
-        {
-          path: 'userHome',
-          element: <UserHome></UserHome>
-
-        },
+     
 
         {
           path: 'cart',
