@@ -17,7 +17,7 @@ const Dashboard = () => {
             } else if (tourGuide) {
                 navigate('/dashboard/myTours', { replace: true });
             } else {
-                navigate('/dashboard/userHome', { replace: true });
+                navigate('/dashboard/manageProfile', { replace: true });
             }
         }
     }, [isRolesLoading, admin, tourGuide, navigate]);
@@ -53,9 +53,8 @@ const Dashboard = () => {
 
                     {!admin && !tourGuide && (
                         <>
-                            <li className="text-xl ml-2 font-bold">User Home</li>
-                            <li><NavLink to={'/dashboard/userHome'}>User Home</NavLink></li>
-                            <li><NavLink to={'/dashboard/manageProfile'}>Manage Profile</NavLink></li>
+                           
+                            <li><NavLink to={'/dashboard/manageProfile'}>User Home</NavLink></li>
                             <li><NavLink to={'/dashboard/tourGuideApply'}>Apply for Tour Guide</NavLink></li>
                             <li><NavLink to={'/dashboard/addStory'}>Add Story</NavLink></li>
                             <li><NavLink to={'/dashboard/bookings'}>My Bookings</NavLink></li>

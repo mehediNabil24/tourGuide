@@ -57,28 +57,54 @@ const ManageProfile = () => {
   return (
     <div className="max-w-md mx-auto p-6 bg-white shadow-lg rounded-lg">
       <h2 className="text-2xl font-bold text-center mb-4">Welcome, {user?.name}!</h2>
-      <div className="flex flex-col items-center">
-        <img
-          src={user?.photoURL}
-          alt="Profile"
-          className="w-24 h-24 rounded-full object-cover mb-4"
-         
-        />
-        <p className="text-lg font-semibold">{user?.name}</p>
-        <p className="text-gray-600">Email: {user?.email}</p>
-        <p className="text-gray-700 font-medium">Role: {user?.role || "user"}</p>
+      <div className="max-w-2xl mx-auto bg-white shadow-lg rounded-xl overflow-hidden">
+      {/* Gradient Header */}
+      <div className="h-28 bg-gradient-to-r from-blue-500 to-purple-500"></div>
 
-        <button onClick={openModal} className="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+      {/* Profile Section */}
+      <div className="flex flex-col items-center -mt-12">
+        <img
+          src={user?.photoURL || "/default-profile.png"}
+          alt="Profile"
+          className="w-24 h-24 rounded-full border-4 border-white object-cover"
+        />
+        <h2 className="text-xl font-semibold mt-2">{user?.name}</h2>
+        <p className="text-gray-600">{user?.email}</p>
+        
+        {/* Membership Badge */}
+        <span className="bg-yellow-500 text-white text-sm font-medium px-3 py-1 rounded-full mt-2">
+          Bronze Member
+        </span>
+      </div>
+
+      {/* User Information */}
+      <div className="p-6">
+      <p className="text-gray-500 text-sm">
+  🕒 Joined: {user?.firstLogin ? new Date(user.firstLogin).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" }) : "N/A"}
+</p>
+        <p className="text-gray-500 text-sm mt-1">
+          🎭 Role: {user?.role || "User"}
+        </p>
+
+        {/* Edit Profile Button */}
+        <button
+          onClick={openModal}
+          className="w-full mt-4 bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition duration-200"
+        >
           Edit Profile
         </button>
 
-        {/* Show Apply for Tour Guide button only if the user is not already a tourGuide */}
+        {/* Apply for Tour Guide Button (if not already a tour guide) */}
         {user?.role !== "tourGuide" && (
-          <button onClick={() => navigate("/dashboard/tourGuideApply")} className="mt-2 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+          <button
+            onClick={() => navigate("/dashboard/tourGuideApply")}
+            className="w-full mt-2 bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition duration-200"
+          >
             Apply for Tour Guide
           </button>
         )}
       </div>
+    </div>
 
       {/* Modal */}
       <Modal isOpen={isOpen} onRequestClose={closeModal} className="bg-white p-6 rounded-lg shadow-lg max-w-md mx-auto mt-20" overlayClassName="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
