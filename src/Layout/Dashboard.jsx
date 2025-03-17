@@ -13,11 +13,11 @@ const Dashboard = () => {
     useEffect(() => {
         if (!isRolesLoading) {
             if (admin) {
-                navigate('/dashboard/addPackage', { replace: true });
+                navigate('/dashboard/adminHome', { replace: true });
             } else if (tourGuide) {
                 navigate('/dashboard/myTours', { replace: true });
             } else {
-                navigate('/dashboard/manageProfile', { replace: true });
+                navigate('/dashboard/userHome', { replace: true });
             }
         }
     }, [isRolesLoading, admin, tourGuide, navigate]);
@@ -33,6 +33,7 @@ const Dashboard = () => {
                     {admin && (
                         <>
                             <li className="text-xl ml-2 font-bold">Admin Home</li>
+                            <li><NavLink to={'/dashboard/adminHome'}>Admin Home</NavLink></li>
                             <li><NavLink to={'/dashboard/addPackage'}>Add Package</NavLink></li>
                             <li><NavLink to={'/dashboard/makeAdmin'}>Make Admin</NavLink></li>
                             <li><NavLink to={'/dashboard/manageCandidate'}>Manage Candidates</NavLink></li>
@@ -53,6 +54,7 @@ const Dashboard = () => {
                     {!admin && !tourGuide && (
                         <>
                             <li className="text-xl ml-2 font-bold">User Home</li>
+                            <li><NavLink to={'/dashboard/userHome'}>User Home</NavLink></li>
                             <li><NavLink to={'/dashboard/manageProfile'}>Manage Profile</NavLink></li>
                             <li><NavLink to={'/dashboard/tourGuideApply'}>Apply for Tour Guide</NavLink></li>
                             <li><NavLink to={'/dashboard/addStory'}>Add Story</NavLink></li>

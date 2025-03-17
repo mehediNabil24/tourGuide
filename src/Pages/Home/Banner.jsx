@@ -27,7 +27,7 @@ const Banner = () => {
   showStatus={false}
   showArrows={true}
   stopOnHover={false}  // Prevent autoplay from stopping on hover
-  className="w-full md:mb-20 mb-14 bg-gray-100"
+  className="w-full md:mb-12 mb-10 bg-gray-100"
 >
   {[img1, image2,  image4].map((image, index) => (
     <div key={index} className="relative w-full h-[250px] md:h-[550px] sm:h-[250px] overflow-hidden">

@@ -11,6 +11,7 @@ import TourTabs from './TourTabs';
 import TouristStory from './TouristStory';
 import InfoSection from './InfoSection';
 import Features from './Feature';
+import NewPackage from './NewPackage';
 const Home = () => {
     return (
         <div>
@@ -23,11 +24,13 @@ const Home = () => {
             <Banner></Banner>
             </div>
             <div className='w-11/12 mx-auto'>
+            
             <Overview></Overview>
             <TourTabs></TourTabs>
             <TouristStory></TouristStory>
-            <Features></Features>
+            <NewPackage></NewPackage>
             <InfoSection></InfoSection>
+            <Features></Features>
             {/* <Package></Package> */}
             {/* <Category></Category> */}
             {/* <PopularItems></PopularItems> */}

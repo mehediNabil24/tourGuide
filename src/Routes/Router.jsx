@@ -29,6 +29,8 @@ import MyBooking from "../Pages/Dashboard/User/MyBooking/MyBooking";
 import AssignedTours from "../Pages/Dashboard/TourGuide/AssignedTour/AssignedTour";
 import AdminManageProfile from "../Pages/Dashboard/AdminManageProfile/AdminManageProfile";
 import MakeAdmin from "../Pages/Dashboard/MakeAdmin/MakeAdmin";
+import AdminHome from "../Pages/Dashboard/AdminHome";
+import UserHome from "../Pages/Dashboard/UserHome";
 
   export const router = createBrowserRouter([
     {
@@ -92,6 +94,12 @@ import MakeAdmin from "../Pages/Dashboard/MakeAdmin/MakeAdmin";
       children: [
         // normal user route
         {
+          path: 'userHome',
+          element: <UserHome></UserHome>
+
+        },
+
+        {
           path: 'cart',
           element: <Cart></Cart>
 
@@ -123,6 +131,11 @@ import MakeAdmin from "../Pages/Dashboard/MakeAdmin/MakeAdmin";
 
 
         //admin routes
+        {
+          path: 'adminHome',
+          element: <AdminHome></AdminHome>
+
+        },
         {
           path: 'addPackage',
           element: <AddItems></AddItems>
