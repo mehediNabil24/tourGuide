@@ -49,7 +49,7 @@ const ManageProfile = () => {
   const closeModal = () => setIsOpen(false);
 
   const onSubmit = (data) => {
-    mutation.mutate({ name: data.name, image: data.image });
+    mutation.mutate({ name: data.name, photo: data.photo });
   };
 
   if (isLoading) return <p className="text-center text-gray-600">Loading...</p>;
@@ -64,7 +64,7 @@ const ManageProfile = () => {
       {/* Profile Section */}
       <div className="flex flex-col items-center -mt-12">
         <img
-          src={user?.photoURL || "/default-profile.png"}
+          src={authUser?.photoURL || "/default-profile.png"}
           alt="Profile"
           className="w-24 h-24 rounded-full border-4 border-white object-cover"
         />
@@ -114,7 +114,7 @@ const ManageProfile = () => {
           <input {...register("name")} className="w-full border px-3 py-2 rounded mt-1" />
 
           <label className="block text-gray-700 mt-2">Profile Image URL:</label>
-          <input {...register("image")} className="w-full border px-3 py-2 rounded mt-1" />
+          <input {...register("photo")} className="w-full border px-3 py-2 rounded mt-1" />
 
           <label className="block text-gray-700 mt-2">Email:</label>
           <input {...register("email")} disabled className="w-full border px-3 py-2 bg-gray-100 rounded mt-1 cursor-not-allowed" />

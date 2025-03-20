@@ -5,6 +5,7 @@ import Swal from "sweetalert2";
 import { AuthContext } from "../../Provider/AuthProvider";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import SocialLogin from "../../Components/Social/SocialLogin";
+import axios from "axios";
 
 const SignUp = () => {
   const { user, createNewUser, setUser, updatedUserProfile } =
@@ -13,12 +14,19 @@ const SignUp = () => {
   const navigate = useNavigate();
   const axiosPublic = useAxiosPublic();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const name = e.target.name.value;
     const email = e.target.email.value;
-    const photo = e.target.photo.value;
+    
     const password = e.target.password.value;
+    const image = e.target.image.files[0];
+    const formData = new FormData()
+    formData.append('image',image)
+
+    //send image data to img_bb
+    const {data} = await axios.post(`https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_image_hosting_key}`,formData)
+   const image_url = data.data.display_url;
 
     if (password.length < 7) {
       setShowError("Password must be at least 6 characters");
@@ -30,19 +38,19 @@ const SignUp = () => {
       setShowError(
         "Password should include one uppercase, one lowercase, and one special character"
       );
-      return;
+      return ;
     }
 
     createNewUser(email, password)
       .then((result) => {
         setUser(result.user);
-        updatedUserProfile({ displayName: name, photoURL: photo })
+        updatedUserProfile({ displayName: name, photoURL: image_url })
           .then(() => {
             const loginTime = new Date().toISOString(); // Get current timestamp
             const userInfo = {
               name,
               email,
-              photo,
+               image,
               firstLogin: loginTime, // Store first login time
               lastLogin: loginTime   // Store last login time
             };
@@ -92,7 +100,14 @@ const SignUp = () => {
               <label className="label">
                 <span className="label-text">Photo</span>
               </label>
-              <input type="text" placeholder="Photo URL" className="input input-bordered" name="photo" required />
+              {/* <input type="text" placeholder="Photo URL" className="input input-bordered" name="photo" required /> */}
+              <input
+                required
+                type='file'
+                id='image'
+                name='image'
+                accept='image/*'
+              />
             </div>
             <div className="form-control rounded-none">
               <label className="label">
