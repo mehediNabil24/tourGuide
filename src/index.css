@@ -2,8 +2,5 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Prevent hover from pausing autoplay */
-.carousel .carousel-slider .slide {
-    pointer-events: none !important;
-  }
+
   

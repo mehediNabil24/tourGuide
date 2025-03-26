@@ -34,8 +34,8 @@ const InfoSection = () => {
   });
 
   return (
-    <div className="bg-[#003C43] text-white py-8 mb-10 mx-4 md:mx-0">
-      <div className="container mx-auto px-4">
+    <div className="bg-[#003C43] text-white py-8 mb-10  md:mx-0">
+      <div className="container mx-auto px-1">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 text-center">
           {/* Card 1 */}
           <motion.div

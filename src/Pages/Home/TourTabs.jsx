@@ -23,18 +23,18 @@ const TourTabs = () => {
     });
 
     return (
-        <div className="container mx-auto p-6">
+        <div className="container mx-auto py-6">
             <Tabs>
                 <TabList className="flex gap-4 mb-6">
                     <Tab 
-                        className="px-4 py-2 bg-gray-300 rounded-md cursor-pointer hover:bg-gray-400"
-                        selectedClassName="bg-[#003C43] text-white"
+                        className="px-4 py-2 bg-[#F6F8D5] text-black rounded-md cursor-pointer hover:bg-[#053928] hover:text-white"
+                        selectedClassName=" bg-[#053928] text-white"
                     >
                         Our Packages
                     </Tab>
                     <Tab 
-                        className="px-4 py-2 bg-gray-300 rounded-md cursor-pointer hover:bg-gray-400"
-                        selectedClassName="bg-[#003C43] text-white"
+                        className="px-4 py-2 bg-[#F6F8D5] text-black rounded-md cursor-pointer hover:bg-[#053928] hover:text-white"
+                        selectedClassName="bg-[#053928] text-white"
                     >
                         Meet Our Tour Guides
                     </Tab>

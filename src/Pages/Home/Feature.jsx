@@ -1,4 +1,5 @@
 import React from "react";
+import NewSectionTitle from "../../Components/SectionTitle/NewSectionTitle";
 
 const Features = () => {
   const features = [
@@ -41,14 +42,11 @@ const Features = () => {
   ];
 
   return (
+    <div> <NewSectionTitle heading='Why Choose Us' subheading={'For Your Next Trip'} />
     <section className="bg-gray-100 py-12 mb-10">
-      <div className="container mx-auto px-6 lg:px-20">
-        <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">
-          Why Choose Us for Your Next Trip?
-        </h2>
-        <p className="text-center text-gray-600 mb-12">
-          Experience seamless travel planning with our expert-curated services and exclusive deals.
-        </p>
+      
+      <div className="container mx-auto  lg:px-20">
+       
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => (
             <div
@@ -67,6 +65,7 @@ const Features = () => {
         </div>
       </div>
     </section>
+    </div>
   );
 };
 

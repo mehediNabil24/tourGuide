@@ -22,10 +22,11 @@ const Home = () => {
             </div>
             <div className='w-full'>
             <Banner></Banner>
+            <Overview></Overview>
             </div>
             <div className='w-11/12 mx-auto'>
             
-            <Overview></Overview>
+            
             <TourTabs></TourTabs>
             <TouristStory></TouristStory>
             <NewPackage></NewPackage>

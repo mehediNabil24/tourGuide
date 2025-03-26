@@ -9,6 +9,7 @@ import logo from '../../../assets/icon/icons8-travel-agency-48.png';
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [secondDropdownOpen, setSecondDropdownOpen] = useState(false);
 
   const handleLogout = () => {
     logOut()
@@ -32,7 +33,7 @@ const Navbar = () => {
 
   return (
     <div className="fixed z-10 bg-opacity-30 bg-black text-white  w-full ">
-      <div className='w-11/12  mx-auto navbar'>
+      <div className='md:w-11/12  mx-auto navbar'>
       <div className="navbar-start">
         {/* Mobile Menu */}
         <div className="dropdown">
@@ -60,8 +61,8 @@ const Navbar = () => {
 
         {/* Logo + Website Name */}
         <Link to="/" className="flex items-center gap-2">
-          <img className="w-[40px]" src={logo} alt="Logo" />
-          <h1 className="text-xl font-semibold">Ghure Ashi</h1>
+          <img className="md:w-[40px] w-[32px]" src={logo} alt="Logo" />
+          <h1 className="md:text-xl text-[14px] text-[#98D2C0] font-semibold"> <span className='text-[#205781]'>Ghure</span> Ashi</h1>
         </Link>
       </div>
 
@@ -79,14 +80,14 @@ const Navbar = () => {
             {/* User Avatar */}
             <button
               className="flex items-center gap-2"
-              onClick={() => setDropdownOpen(!dropdownOpen)}
+              onClick={() => setSecondDropdownOpen(!secondDropdownOpen)}
             >
               <img className="w-[40px] h-[40px] rounded-full" src={user.photoURL} alt="Profile" />
               <MdOutlineKeyboardArrowDown className="text-xl" />
             </button>
 
             {/* Dropdown Menu */}
-            {dropdownOpen && (
+            {secondDropdownOpen && (
               <div className="absolute right-0 mt-2 w-48 bg-white text-black shadow-lg rounded-lg py-2">
                 <p className="px-4 py-2 font-semibold">{user.displayName}</p>
                 <p className="px-4 text-sm text-gray-500">{user.email}</p>

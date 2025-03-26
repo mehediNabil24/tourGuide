@@ -10,7 +10,7 @@ const NewPackage = () => {
     const navigate = useNavigate();
 
     return (
-        <div className="py-8 mb-12 w-10/12 mx-auto">
+        <div className="py-8 mb-12 md:w-10/12  mx-auto">
             <NewSectionTitle heading='Perfect Holiday' subheading={'Choose Your'} />
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
                 {packages
