@@ -67,12 +67,12 @@ const ManageStories = () => {
 
   return (
     <div>
-      <h1 className="text-xl font-bold">Total Stories added by me:{stories.length}</h1>
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-6">
+      <h1 className="text-xl font-bold text-center">Total Stories added by me:{stories.length}</h1>
+    <div className="grid grid-cols-1 gap-4 p-6">
       
       {stories?.map((story) => (
         <div key={story._id} className="bg-white shadow-md rounded-lg p-4">
-          <img src={story.image} alt="Story" className="w-20 h-20 object-cover rounded" />
+          <img src={story.image} alt="Story" className=" w-[100%] md:h-[50%] h-[250px] object-cover rounded" />
           <h3 className="text-xl">{story.story}</h3>
 
           <div className="flex justify-between mt-4">

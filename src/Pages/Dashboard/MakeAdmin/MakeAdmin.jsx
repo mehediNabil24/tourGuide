@@ -65,46 +65,80 @@ Swal.fire({
 
     }
     return (
-        <div>
-            <h2 className="text-4xl">Add Admin</h2>
-
-            <div className="overflow-x-auto">
-  <table className="table w-full mt-5">
-    {/* head */}
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Role</th>
-        <th>Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      {
-        users.map((user,index)=>  <tr key={user._id} className="bg-base-200">
-            <th>{index+1}</th>
-            <td>{user.name}</td>
-            <td>{user.email}</td>
-            <td>
-                {
-                  user.role === 'admin' ? 'Admin':  <button onClick={()=>{handleMakeAdmin(user)}} className="btn btn-lg text-white text-xl bg-blue-400">MakeAdmin</button>
-                }
-
-            </td>
-            <td>
-                 <button onClick={()=>{handleDeleteUser(user)}} className="btn btn-ghost btn-lg text-red-600"><FaTrash></FaTrash></button>
-            </td>
-          </tr>
-        )
-      }
-     
-    
-    </tbody>
-  </table>
-</div>
-            
-        </div>
+      <div className="p-4">
+      <h2 className="text-4xl text-center mb-4">Add Admin</h2>
+  
+      <div className="overflow-hidden">
+          {/* Desktop Table */}
+          <table className="hidden md:table w-full border border-gray-300">
+              <thead className="bg-gray-100">
+                  <tr>
+                      <th className="p-2">#</th>
+                      <th className="p-2">Name</th>
+                      <th className="p-2">Email</th>
+                      <th className="p-2">Role</th>
+                      <th className="p-2">Action</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  {users.map((user, index) => (
+                      <tr key={user._id} className="bg-base-200 border-b">
+                          <th className="p-2">{index + 1}</th>
+                          <td className="p-2">{user.name}</td>
+                          <td className="p-2">{user.email}</td>
+                          <td className="p-2">
+                              {user.role === 'admin' ? 'Admin' : (
+                                  <button 
+                                      onClick={() => handleMakeAdmin(user)} 
+                                      className="btn text-white bg-blue-400 px-3 py-1 rounded-md"
+                                  >
+                                      Make Admin
+                                  </button>
+                              )}
+                          </td>
+                          <td className="p-2">
+                              <button 
+                                  onClick={() => handleDeleteUser(user)} 
+                                  className="btn btn-ghost text-red-600"
+                              >
+                                  <FaTrash />
+                              </button>
+                          </td>
+                      </tr>
+                  ))}
+              </tbody>
+          </table>
+  
+          {/* Mobile View - Stacked Cards */}
+          <div className="md:hidden space-y-4">
+              {users.map((user, index) => (
+                  <div key={user._id} className="border p-4 rounded-lg bg-base-200 shadow-md">
+                      <p className="text-lg font-semibold">#{index + 1}</p>
+                      <p><span className="font-semibold">Name:</span> {user.name}</p>
+                      <p><span className="font-semibold">Email:</span> {user.email}</p>
+                      <p>
+                          <span className="font-semibold">Role:</span> 
+                          {user.role === 'admin' ? ' Admin' : (
+                              <button 
+                                  onClick={() => handleMakeAdmin(user)} 
+                                  className="ml-2 px-3 py-1 bg-blue-400 text-white rounded-md"
+                              >
+                                  Make Admin
+                              </button>
+                          )}
+                      </p>
+                      <button 
+                          onClick={() => handleDeleteUser(user)} 
+                          className="mt-2 px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-700"
+                      >
+                          <FaTrash />
+                      </button>
+                  </div>
+              ))}
+          </div>
+      </div>
+  </div>
+  
     );
 };
 

@@ -2,11 +2,11 @@ import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import CountUp from "react-countup";
 import { motion } from "framer-motion";
-import { FaStar, FaFacebook, FaGoogle } from "react-icons/fa";
+import { FaUserTie, FaSmile, FaSuitcaseRolling } from "react-icons/fa";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
 const AnimatedCounter = ({ value }) => (
-  <CountUp start={0} end={value} duration={2} separator="," />
+  <CountUp start={0} end={value} duration={10} separator="," />
 );
 
 const InfoSection = () => {
@@ -34,67 +34,50 @@ const InfoSection = () => {
   });
 
   return (
-    <div className="bg-[#003C43] text-white py-8 mb-10  md:mx-0">
-      <div className="container mx-auto px-1">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 text-center">
-          {/* Card 1 */}
+    <div className="bg-gradient-to-r from-sky-500 to-sky-600 text-white py-8 px-6 shadow-lg">
+      <div className="container mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 text-center">
+          {/* Card 1 - Tour Guides */}
           <motion.div
-            className="p-4 bg-white/10 rounded-lg shadow-md"
+            className="p-6 bg-white/10 rounded-xl shadow-lg hover:scale-105 transition-all duration-300"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
           >
-            <h2 className="text-4xl font-bold">
-              {statsLoading ? "Loading..." : <AnimatedCounter value={stats?.totalTourGuides} />}
+            <FaUserTie className="text-white text-3xl mx-auto mb-3" />
+            <h2 className="text-4xl font-extrabold">
+              {statsLoading ? "..." : <AnimatedCounter value={stats?.totalTourGuides} />}
             </h2>
-            <p className="mt-2 text-lg">Registered Tour Guides</p>
+            <p className="mt-2 text-lg font-medium">Registered Tour Guides</p>
           </motion.div>
 
-          {/* Card 2 */}
+          {/* Card 2 - Happy Travelers */}
           <motion.div
-            className="p-4 bg-white/10 rounded-lg shadow-md"
+            className="p-6 bg-white/10 rounded-xl shadow-lg hover:scale-105 transition-all duration-300"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.2 }}
           >
-            <h2 className="text-4xl font-bold">
-              {statsLoading ? "Loading..." : <AnimatedCounter value={stats?.totalClients} />}
+            <FaSmile className="text-white text-3xl mx-auto mb-3" />
+            <h2 className="text-4xl font-extrabold">
+              {statsLoading ? "..." : <AnimatedCounter value={stats?.totalClients} />}
             </h2>
-            <p className="mt-2 text-lg">Happy Travelers</p>
+            <p className="mt-2 text-lg font-medium">Happy Travelers</p>
           </motion.div>
 
-          {/* Card 3 */}
+          {/* Card 3 - Tour Packages */}
           <motion.div
-            className="p-4 bg-white/10 rounded-lg shadow-md"
+            className="p-6 bg-white/10 rounded-xl shadow-lg hover:scale-105 transition-all duration-300"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.4 }}
           >
-            <h2 className="text-4xl font-bold">
-              {statsLoading ? "Loading..." : <AnimatedCounter value={stats?.totalPackages} />}
+            
+            <FaSuitcaseRolling className="text-white text-3xl mx-auto mb-3" />
+            <h2 className="text-4xl font-extrabold">
+              {statsLoading ? "..." : <AnimatedCounter value={stats?.totalPackages} />}
             </h2>
-            <p className="mt-2 text-lg">Available Tour Packages</p>
-          </motion.div>
-        </div>
-
-        {/* Reviews Section */}
-        <div className="mt-8 border-t border-white/20 pt-4 flex flex-wrap justify-center gap-4 sm:gap-6">
-          <motion.div className="flex items-center space-x-2 bg-white/10 p-3 rounded-lg"
-            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.6 }}>
-            <FaStar className="text-yellow-400 w-6 h-6" />
-            <span className="text-lg">Rating 4.9</span>
-          </motion.div>
-
-          <motion.div className="flex items-center space-x-2 bg-white/10 p-3 rounded-lg"
-            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.8 }}>
-            <FaFacebook className="text-blue-500 w-6 h-6" />
-            <span className="text-lg">Followers 10K</span>
-          </motion.div>
-
-          <motion.div className="flex items-center space-x-2 bg-white/10 p-3 rounded-lg"
-            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 1 }}>
-            <FaGoogle className="text-red-500 w-6 h-6" />
-            <span className="text-lg">Reviews 4.7</span>
+            <p className="mt-2 text-lg font-medium">Available Tour Packages</p>
           </motion.div>
         </div>
       </div>

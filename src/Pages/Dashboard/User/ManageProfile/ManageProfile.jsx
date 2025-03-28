@@ -55,7 +55,7 @@ const ManageProfile = () => {
   if (isLoading) return <p className="text-center text-gray-600">Loading...</p>;
 
   return (
-    <div className="max-w-xl mx-auto p-6 bg-white shadow-lg rounded-lg">
+    <div className="max-w-xl mx-auto p-6 mt-8 md:mt-6 bg-white shadow-lg rounded-lg">
       <h2 className="text-2xl font-bold text-center mb-4 ">Welcome, {user?.name}!</h2>
       <div className="max-w-2xl mx-auto bg-white shadow-lg rounded-xl overflow-hidden">
       {/* Gradient Header */}

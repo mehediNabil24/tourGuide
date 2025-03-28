@@ -12,6 +12,7 @@ import TouristStory from './TouristStory';
 import InfoSection from './InfoSection';
 import Features from './Feature';
 import NewPackage from './NewPackage';
+import DiscountSection from './Discount';
 const Home = () => {
     return (
         <div>
@@ -28,10 +29,11 @@ const Home = () => {
             
             
             <TourTabs></TourTabs>
+            <DiscountSection></DiscountSection>
             <TouristStory></TouristStory>
             <NewPackage></NewPackage>
-            <InfoSection></InfoSection>
-            <Features></Features>
+            
+           
             {/* <Package></Package> */}
             {/* <Category></Category> */}
             {/* <PopularItems></PopularItems> */}
@@ -39,6 +41,13 @@ const Home = () => {
             {/* <Testomonials></Testomonials> */}
             
         </div>
+        <InfoSection></InfoSection>
+        <div className='w-11/12 mx-auto'>
+        <Features></Features>
+        </div>
+
+
+
         </div>
     );
 };

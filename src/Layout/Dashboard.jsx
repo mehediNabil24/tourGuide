@@ -75,7 +75,7 @@ const Dashboard = () => {
             </div>
 
             {/* Main Content Area */}
-            <div className="flex-1 p-5">
+            <div className="flex-1 p-5 sticky top-0 ">
                 {/* Toggle Button for Mobile */}
                 <button 
                     onClick={() => setIsSidebarOpen(true)} 

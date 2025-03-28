@@ -7,7 +7,7 @@ const [packages] = usePackage();
         <div className="container mx-auto p-6">
         <h2 className="text-2xl font-bold text-center mb-6">📸 Tour Gallery</h2>
 
-        <div className="grid grid-cols-3 gap-2">
+        <div className="grid md:grid-cols-3 grid-cols-1 gap-2">
             {packages.length > 0 && (
                 <>
                     <div className="col-span-1 grid gap-1">

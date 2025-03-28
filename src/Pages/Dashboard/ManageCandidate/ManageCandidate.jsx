@@ -65,50 +65,84 @@ Swal.fire({
 
     }
     return (
-        <div>
-            <h2 className="text-2xl">Total Application For TourGuide : {tourGuides.length}</h2>
-
-            <div className="overflow-x-auto">
-  <table className="table w-full mt-5">
-    {/* head */}
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Role</th>
-        <th>Delete</th>
-      </tr>
-    </thead>
-    <tbody>
-      {
-        tourGuides.map((tourGuide,index)=>  <tr key={tourGuide._id} className="bg-base-200">
-            <th>{index+1}</th>
-            <td>{tourGuide.name}</td>
-            <td>{tourGuide.email}</td>
-            <td>
-  {tourGuide.role === 'tourGuide' ? (
-    'Tour Guide'
-  ) : (
-    <button onClick={() => handleMakeTourGuide(tourGuide)} className="btn btn-lg text-white text-xl bg-orange-400">
-      MakeTourGuide
-    </button>
-  )}
-</td>
-
-            <td>
-                 <button onClick={()=>{handleDeleteTourGuide(tourGuide)}} className="btn btn-ghost btn-lg text-red-600"><FaTrash></FaTrash></button>
-            </td>
-          </tr>
-        )
-      }
-     
-    
-    </tbody>
-  </table>
-</div>
-            
-        </div>
+      <div className="p-4">
+      <h2 className="text-2xl text-center mb-4">
+          Total Application For Tour Guide: {tourGuides.length}
+      </h2>
+  
+      <div className="overflow-hidden">
+          {/* Desktop Table */}
+          <table className="hidden md:table w-full border border-gray-300">
+              <thead className="bg-gray-100">
+                  <tr>
+                      <th className="p-2">#</th>
+                      <th className="p-2">Name</th>
+                      <th className="p-2">Email</th>
+                      <th className="p-2">Role</th>
+                      <th className="p-2">Delete</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  {tourGuides.map((tourGuide, index) => (
+                      <tr key={tourGuide._id} className="bg-base-200 border-b">
+                          <th className="p-2">{index + 1}</th>
+                          <td className="p-2">{tourGuide.name}</td>
+                          <td className="p-2">{tourGuide.email}</td>
+                          <td className="p-2">
+                              {tourGuide.role === 'tourGuide' ? (
+                                  'Tour Guide'
+                              ) : (
+                                  <button 
+                                      onClick={() => handleMakeTourGuide(tourGuide)} 
+                                      className="btn text-white bg-orange-400 px-3 py-1 rounded-md"
+                                  >
+                                      Make Tour Guide
+                                  </button>
+                              )}
+                          </td>
+                          <td className="p-2">
+                              <button 
+                                  onClick={() => handleDeleteTourGuide(tourGuide)} 
+                                  className="btn btn-ghost text-red-600"
+                              >
+                                  <FaTrash />
+                              </button>
+                          </td>
+                      </tr>
+                  ))}
+              </tbody>
+          </table>
+  
+          {/* Mobile View - Stacked Cards */}
+          <div className="md:hidden space-y-4">
+              {tourGuides.map((tourGuide, index) => (
+                  <div key={tourGuide._id} className="border p-4 rounded-lg bg-base-200 shadow-md">
+                      <p className="text-lg font-semibold">#{index + 1}</p>
+                      <p><span className="font-semibold">Name:</span> {tourGuide.name}</p>
+                      <p><span className="font-semibold">Email:</span> {tourGuide.email}</p>
+                      <p>
+                          <span className="font-semibold">Role:</span> 
+                          {tourGuide.role === 'tourGuide' ? ' Tour Guide' : (
+                              <button 
+                                  onClick={() => handleMakeTourGuide(tourGuide)} 
+                                  className="ml-2 px-3 py-1 bg-orange-400 text-white rounded-md"
+                              >
+                                  Make Tour Guide
+                              </button>
+                          )}
+                      </p>
+                      <button 
+                          onClick={() => handleDeleteTourGuide(tourGuide)} 
+                          className="mt-2 px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-700"
+                      >
+                          <FaTrash />
+                      </button>
+                  </div>
+              ))}
+          </div>
+      </div>
+  </div>
+  
     );
 };
 

@@ -1,6 +1,7 @@
 // AllPackage.jsx
 import React from 'react';
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 import usePackage from '../../Hooks/usePackage';
 
 import NewSectionTitle from '../../Components/SectionTitle/NewSectionTitle';
@@ -16,8 +17,8 @@ const NewPackage = () => {
                 {packages
                     
                     .map(pkg => (
-                        <div key={pkg._id} className=" shadow-md overflow-hidden relative">
-                            <img  onClick={() => navigate(`/packageDetails/${pkg._id}`)} 
+                        <motion.div key={pkg._id} onClick={() => navigate(`/packageDetails/${pkg._id}`)} className=" shadow-md overflow-hidden relative" whileHover={{ scale: 1.05 }} transition={{ duration: 0.3 }}>
+                            <img   
                              src={pkg.image} 
                                  alt={pkg.tripTitle} 
                                  className="w-full h-64 object-cover cursor-pointer" />
@@ -26,7 +27,7 @@ const NewPackage = () => {
                                 <p className="text-sm">{pkg.tourType}</p>
                                 <p className="text-xl font-semibold">${pkg.price}</p>
                             </div>
-                        </div>
+                        </motion.div>
                     ))}
             </div>
         </div>

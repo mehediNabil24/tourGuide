@@ -68,6 +68,7 @@ const Login = () => {
               <h1 className="text-5xl font-bold text-center">Login now!</h1>
               <form onSubmit={handleLogin} className="card-body">
                 <div className="form-control">
+                  
                   <label className="label">
                     <span className="label-text">Email</span>
                   </label>
@@ -115,10 +116,11 @@ const Login = () => {
 
               {/* 🚀 Quick Role Login Buttons */}
               <div className="flex justify-around mb-2">
-                <button onClick={() => handleRoleLogin('admin')} className="btn bg-[#6A9C89]">Login as Admin</button>
-                <button onClick={() => handleRoleLogin('tourGuide')} className="btn bg-[#6A9C89]">Login as Tour Guide</button>
-                <button onClick={() => handleRoleLogin('user')} className="btn bg-[#6A9C89]">Login as User</button>
+                <button onClick={() => handleRoleLogin('admin')} className="btn bg-[#6A9C89]">Admin</button>
+                <button onClick={() => handleRoleLogin('tourGuide')} className="btn bg-[#6A9C89]">Tour Guide</button>
+                <button onClick={() => handleRoleLogin('user')} className="btn bg-[#6A9C89]">User</button>
               </div>
+              
 
             </div>
           </div>

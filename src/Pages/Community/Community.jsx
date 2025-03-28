@@ -31,7 +31,7 @@ const Community = () => {
 
     return (
         <div className="py-16 bg-gray-100">
-        <div className="container mx-auto p-6">
+        <div className="container mx-auto py-6">
             <h2 className="text-2xl font-bold text-center mb-6">📖 Tourist Stories</h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
