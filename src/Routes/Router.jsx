@@ -30,6 +30,7 @@ import AssignedTours from "../Pages/Dashboard/TourGuide/AssignedTour/AssignedTou
 import AdminManageProfile from "../Pages/Dashboard/AdminManageProfile/AdminManageProfile";
 import MakeAdmin from "../Pages/Dashboard/MakeAdmin/MakeAdmin";
 import AdminHome from "../Pages/Dashboard/AdminHome";
+import NewPackageDetails from "../Pages/PackageDetails/NewPackageDetails";
 // import UserHome from "../Pages/Dashboard/UserHome";
 
   export const router = createBrowserRouter([
@@ -57,9 +58,14 @@ import AdminHome from "../Pages/Dashboard/AdminHome";
           path: '/signup',
           element: <SignUp></SignUp>
         },
+        // {
+        //   path: '/packageDetails/:id',
+        //   element:<PackageDetails></PackageDetails> ,
+        //   loader: ({params})=> fetch(`https://tourism-server-site-mu.vercel.app/packageDetails/${params.id}`)
+        // },
         {
           path: '/packageDetails/:id',
-          element:<PackageDetails></PackageDetails> ,
+          element:<NewPackageDetails></NewPackageDetails>,
           loader: ({params})=> fetch(`https://tourism-server-site-mu.vercel.app/packageDetails/${params.id}`)
         },
         {

@@ -45,7 +45,7 @@ const TouristStory = () => {
                                     url={story.image} 
                                     quote={story.story}
                                 >
-                                    <FacebookIcon size={36} round />
+                                    <FacebookIcon  size={36} round />
                                 </FacebookShareButton>
                             ) : (
                                 <button 

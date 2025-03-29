@@ -4,7 +4,7 @@ import { AuthContext } from '../../../Provider/AuthProvider';
 import { FaUserLarge } from 'react-icons/fa6';
 import { FaShoppingCart } from 'react-icons/fa';
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
-import logo from '../../../assets/icon/icons8-travel-agency-48.png';
+import logo from '../../../assets/icon/icons8-beach-50.png';
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -62,7 +62,7 @@ const Navbar = () => {
         {/* Logo + Website Name */}
         <Link to="/" className="flex items-center gap-2">
           <img className="md:w-[40px] w-[32px]" src={logo} alt="Logo" />
-          <h1 className="md:text-xl text-[14px] text-[#98D2C0] font-semibold"> <span className='text-[#205781]'>Ghure</span> Ashi</h1>
+          <h1 className="md:text-2xl text-[15px] bg-gradient-to-r from-sky-500 to-white text-transparent bg-clip-text  font-bold"> Ghure Ashi</h1>
         </Link>
       </div>
 
