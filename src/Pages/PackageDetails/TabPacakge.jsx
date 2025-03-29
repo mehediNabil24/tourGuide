@@ -1,6 +1,8 @@
 import React from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import Gallery from './Gallery';
+import TourPlan from './TourPlan';
+import AddReview from './AddReview';
 
 const TabPacakge = ({description}) => {
     return (
@@ -32,11 +34,12 @@ const TabPacakge = ({description}) => {
                 <div>
                     <p>{description}</p>
                 </div>
+                <AddReview></AddReview>
                 
                  </TabPanel>
                  <TabPanel>
                     <div>
-                        <p>Travel Plan</p>
+                        <TourPlan></TourPlan>
                     </div>
                  </TabPanel>
                  <TabPanel>
