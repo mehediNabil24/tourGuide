@@ -28,14 +28,14 @@ const TourTabs = () => {
             <Tabs>
             <TabList className="flex gap-4 mb-6 border-b-2 border-gray-300">
   <Tab 
-    className="px-4 py-2 rounded-md cursor-pointer bg-gray-300 text-gray-800 hover:bg-blue-400 hover:text-white transition duration-300"
-    selectedClassName="!bg-blue-500 !text-white font-bold border-b-4 border-blue-800"
+    className="px-4 py-2 rounded-md cursor-pointer bg-gray-300 text-gray-800 hover:bg-sky-400 hover:text-white transition duration-300"
+    selectedClassName="!bg-sky-500 !text-white font-bold border-b-4 border-sky-800"
   >
     Our Packages
   </Tab>
   <Tab 
-    className="px-4 py-2 rounded-md cursor-pointer bg-gray-300 text-gray-800 hover:bg-blue-400 hover:text-white transition duration-300"
-    selectedClassName="!bg-blue-500 !text-white font-bold border-b-4 border-blue-800"
+    className="px-4 py-2 rounded-md cursor-pointer bg-gray-300 text-gray-800 hover:bg-sky-400 hover:text-white transition duration-300"
+    selectedClassName="!bg-sky-500 !text-white font-bold border-b-4 border-sky-800"
   >
     Meet Our Tour Guides
   </Tab>
@@ -70,10 +70,10 @@ const TourTabs = () => {
                     <motion.img src={pkg.image} alt={pkg.tripTitle} className="w-full h-40 object-cover  rounded-md transition-transform duration-500 ease-in-out "   />
                     <h3 className="text-lg font-bold mt-2">{pkg.tripTitle}</h3>
                     <p className="text-gray-600">{pkg.tourType}</p>
-                    <p className="text-lg font-semibold text-green-600">${pkg.price}</p>
+                    <p className="text-lg font-semibold text-sky-600">${pkg.price}</p>
                     <button
                         onClick={() => navigate(`/packageDetails/${pkg._id}`)}
-                        className="mt-3 px-4 py-2 bg-[#003C43] text-white rounded-md hover:bg-blue-600"
+                        className="mt-3 px-4 py-2 bg-sky-500 text-white rounded-md hover:bg-sky-600"
                     >
                         View Details
                     </button>
@@ -84,7 +84,7 @@ const TourTabs = () => {
         <div className="text-center mt-6">
             <button 
                 onClick={() => navigate('/package')}
-                className="px-5 py-2 bg-[#003C43] text-white rounded-md hover:bg-blue-600"
+                className="px-5 py-2 bg-sky-500 text-white rounded-md hover:bg-sky-600"
             >
                 View All Packages
             </button>
@@ -127,7 +127,7 @@ const TourTabs = () => {
       {/* Profile Button */}
       <button
         onClick={() => navigate(`/tourGuide/${guide._id}`)}
-        className="mt-3 px-5 py-2 rounded-md text-white bg-blue-500 hover:from-blue-600 hover:to-[#003C43] shadow-md transition-all duration-300"
+        className="mt-3 px-5 py-2 rounded-md text-white bg-sky-500 hover:from-sky-600 hover:to-[#003C43] shadow-md transition-all duration-300"
       >
         View Profile
       </button>

@@ -1,8 +1,10 @@
 import React from "react";
 import { FaPhoneAlt, FaCheckCircle } from "react-icons/fa";
 import backgroundImage from "../../../src/assets/home/about-one-img-1.e526a0a5.png"; // Replace with actual image path
+import { useNavigate } from "react-router-dom";
 
 const DiscountSection = () => {
+    const navigate = useNavigate();
   return (
     <div className="relative bg-white py-16  lg:flex lg:items-center lg:justify-between">
       {/* Left Side - Image with Overlay */}
@@ -63,7 +65,7 @@ const DiscountSection = () => {
         </ul>
 
         {/* Call to Action Button */}
-        <button className="mt-6 bg-sky-500 text-white py-3 px-6 rounded-lg text-lg font-semibold hover:bg-red-600 transition">
+        <button onClick={()=>navigate('/package')} className="mt-6 bg-sky-500 text-white py-3 px-6 rounded-lg text-lg font-semibold hover:bg-sky-600 transition">
           BOOK WITH US NOW
         </button>
       </div>
